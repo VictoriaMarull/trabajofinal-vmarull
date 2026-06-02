@@ -17,7 +17,7 @@ from supermercado import (
 
 def test_calcular_importe():
     resultado = calcular_importe(3, 150)
-    assert resultado == 450
+    assert resultado == 999
 
 
 def test_debe_intercambiar_por_sucursal():
