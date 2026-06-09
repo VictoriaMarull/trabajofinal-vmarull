@@ -11,7 +11,10 @@ from supermercado import (
     ordenar_burbuja,
     guardar_csv,
     leer_csv,
-    ordenar_archivo
+    ordenar_archivo,
+    mostrar_totales_por_producto,
+    mostrar_totales_por_sucursal,
+    mostrar_totales_generales
 )
 
 
@@ -85,3 +88,43 @@ def test_ordenar_archivo_crea_csv_ordenado(tmp_path):
         "2025-03-03",
         "2025-04-10"
     ]
+
+
+def test_totales_por_producto(capsys):
+    df = pd.DataFrame([
+        {"PRSUC": "SUC01", "PRCOD": "P100", "PRCANT": 2, "PRPRE": 100},
+        {"PRSUC": "SUC01", "PRCOD": "P100", "PRCANT": 3, "PRPRE": 100},
+    ])
+
+    mostrar_totales_por_producto(df)
+
+    salida = capsys.readouterr().out
+    assert "Unidades: 5" in salida
+    assert "Total $: 500" in salida
+
+
+def test_totales_por_sucursal(capsys):
+    df = pd.DataFrame([
+        {"PRSUC": "SUC01", "PRCOD": "P100", "PRCANT": 2, "PRPRE": 100},
+        {"PRSUC": "SUC01", "PRCOD": "P101", "PRCANT": 5, "PRPRE": 50},
+    ])
+
+    mostrar_totales_por_sucursal(df)
+
+    salida = capsys.readouterr().out
+    assert "Total unidades: 7" in salida
+    assert "Mayor producto: P101" in salida
+    assert "Menor producto: P100" in salida
+
+
+def test_totales_generales(capsys):
+    df = pd.DataFrame([
+        {"PRSUC": "SUC01", "PRCOD": "P100", "PRCANT": 2, "PRPRE": 100},
+        {"PRSUC": "SUC02", "PRCOD": "P101", "PRCANT": 3, "PRPRE": 50},
+    ])
+
+    mostrar_totales_generales(df)
+
+    salida = capsys.readouterr().out
+    assert "Cantidad de sucursales: 2" in salida
+    assert "Total general $: 350" in salida
