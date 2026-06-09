@@ -173,8 +173,8 @@ def mostrar_totales_generales(df):
 
 
 def ejecutar_programa():
-    archivo_entrada = "COMPRAS_supermercado_desordenado_solo_sucursal.csv"
-    archivo_salida = "COMPRAS_supermercado_ordenado.csv"
+    archivo_entrada = "compras_supermercado_desordenado_solo_sucursal.csv"
+    archivo_salida = "compras_supermercado_ordenado.csv"
 
     print("Cargando archivo...")
     ordenar_archivo(archivo_entrada, archivo_salida)

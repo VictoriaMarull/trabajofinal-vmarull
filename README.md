@@ -27,8 +27,8 @@ trabajofinal-vmarull/
 ├── supermercado.py
 ├── requirements.txt
 ├── README.md
-├── COMPRAS_supermercado_desordenado_solo_sucursal.csv
-├── COMPRAS_supermercado_ordenado.csv
+├── compras_supermercado_desordenado_solo_sucursal.csv
+├── compras_supermercado_ordenado.csv
 │
 └── tests/
     └── test_supermercado.py
@@ -70,6 +70,3 @@ El proyecto incorpora GitHub Actions para ejecutar automáticamente las pruebas 
 * Git
 * GitHub
 * GitHub Actions
-
-```
-```
