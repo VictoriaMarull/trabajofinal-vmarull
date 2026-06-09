@@ -62,7 +62,7 @@ pytest -v
 
 El proyecto incorpora GitHub Actions para ejecutar automáticamente las pruebas unitarias ante cada push y pull request, permitiendo validar el correcto funcionamiento del sistema en cada cambio realizado.
 
-## Tecnologías Utilizadas
+## Tecnologías utilizadas
 
 * Python 3.12
 * Pandas
